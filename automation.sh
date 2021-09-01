@@ -87,3 +87,12 @@ else
     fsize=$(ls -lah /tmp/$filename | awk '{ print $5}')
     printf "httpd-logs\t$timestamp\ttar\t$fsize\n" >> $inv_file
 fi
+
+# Check if cron job exists, if not create cron job to execute the script everyday
+
+cron_file="/etc/cron.d/automation"
+if [ ! -f $cron_file ]
+then
+    echo "Creating a cron job."
+    printf "0 0 * * * root /root/Automation_Project/automation.sh\n" > $cron_file
+fi
