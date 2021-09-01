@@ -1,6 +1,8 @@
 #!/bin/bash
 
 timestamp=$(date '+%d%m%Y-%H%M%S')
+s3_bucket=upgrad-ambitpattnaik
+myname=Ambit
 
 # Perform an update of the package details and the package list
 
